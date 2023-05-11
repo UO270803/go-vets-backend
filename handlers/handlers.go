@@ -19,6 +19,8 @@ func Handlers() {
 		middlewares.CheckDB(middlewares.CheckJWT(routers.GetUser))).Methods("GET")
 	router.HandleFunc("/updateUser",
 		middlewares.CheckDB(middlewares.CheckJWT(routers.UpdateUser))).Methods("PUT")
+	router.HandleFunc("/vets",
+		middlewares.CheckDB(middlewares.CheckJWT(routers.GetVets))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
